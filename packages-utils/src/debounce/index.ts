@@ -13,6 +13,10 @@
  * @param {number} wait 毫秒
  * @param {boolean} immediate 立即执行（让其在第一次输入的时候，就给用户一个联想）
  * @returns 返回一个函数，该函数返回一个 Promise，解析为执行的方法的返回值。另外，该函数还具有一个 cancel 方法，用于取消防抖
+ * 
+ * 使用：
+ * 
+ * 
  */
 export default function debounce<T extends (...args: unknown[]) => unknown>(func: Function, wait: number = 250, immediate: boolean = false): ((...args: Parameters<T>) => Promise<ReturnType<T>>) & {
     cancel: () => void
